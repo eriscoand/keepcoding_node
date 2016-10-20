@@ -1,0 +1,12 @@
+[
+	{
+		"nombre": "admin",
+		"email": "admin@admin.com",
+		"clave": "d033e22ae348aeb5660fc2140aec35850c4da997"
+	},
+	{
+		"nombre": "test",
+		"email": "test@test.com",
+		"clave": "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"
+	}
+]
