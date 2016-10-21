@@ -1,7 +1,7 @@
 {
 	"api_url" 		: "/apiv1",
+	"images_folder" : "/images/",
 
-	"server_ip"		: "localhost",
 	"server_port"	: 5005,
 
 	"db_name"		: "practica",	
@@ -9,6 +9,8 @@
 	"db_port"		: 27017,
 	"db_username"	: "",
 	"db_password"	: "",
+
+	"default_language" : "en",
 
 	"jwt" : { "secret" : "como-viviras-jonny?dia-a-dia"	}
 }

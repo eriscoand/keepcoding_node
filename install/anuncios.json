@@ -1,23 +1,23 @@
 [
 	{
-		"nombre": "Bicicleta",
-		"venta": true,
-		"precio": 230.15,
-		"foto": "bici.jpg",
-		"tags": [ "lifestyle", "motor"]
-	},
-	{
-		"nombre": "iPhone 3GS",
+		"nombre": "Samsung Galaxy Note 7",
 		"venta": false,
-		"precio": 50.00,
-		"foto": "iphone.png",
-		"tags": [ "lifestyle", "mobile"]
+		"precio": 600.70,
+		"foto": "note7.jpg",
+		"tags": [ "lifestyle", "mobile", "explosivos" ]
 	},
 	{
-		"nombre": "iPhone 5",
+		"nombre": "iPhone",
 		"venta": true,
-		"precio": 500.00,
-		"foto": "iphone5.png",
-		"tags": [ "lifestyle", "mobile"]
+		"precio": 800.50,
+		"foto": "iphone.jpg",
+		"tags": [ "lifestyle", "mobile" ]
+	},
+	{
+		"nombre": "Balón de rugby",
+		"venta": true,
+		"precio": 50.00,
+		"foto": "rugby.jpg",
+		"tags": [ "sport", "team", "rugby" ]
 	}
 ]

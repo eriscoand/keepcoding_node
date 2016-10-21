@@ -1,11 +1,14 @@
 "use strict";
 
+//middleware's
+var mongoose = require('mongoose');
+
+//cargar modelos y base de datos
 require('../lib/mongoConnection');
 require('../models/usuario'); 
 require('../models/anuncio'); 
 
 //cargar Modelos Mongoose
-var mongoose = require('mongoose');
 var Usuario = mongoose.model('Usuario');
 var Anuncio = mongoose.model('Anuncio');
 
@@ -39,19 +42,18 @@ function deleteAnuncios(){
 function createUsuarios(){
 	console.log("Creando Usuarios...");
 	return new Promise(function(resolve, reject){
-		Usuario.collection.insertMany(usuarios, function(err){
+		Usuario.insertMany(usuarios, function(err){
 			if(err) reject(err);
 			resolve();
 		})
 	});
 }
 
-
 //funcion que crea los anuncios a partir del JSON
 function createAnuncios(){
 	console.log("Creando Anuncios...");
 	return new Promise(function(resolve, reject){
-		Anuncio.collection.insertMany(anuncios, function(err){
+		Anuncio.insertMany(anuncios, function(err){
 			if(err) reject(err);
 			resolve();
 		})
