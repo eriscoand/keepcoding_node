@@ -14,5 +14,5 @@
 
 	"default_language" : "en",
 
-	"jwt" : { "secret" : "como-viviras-jonny?dia-a-dia"	}
+	"jwt" : { "secret" : "como-viviras-jonny?dia-a-dia", "expires": "2 days"	}
 }

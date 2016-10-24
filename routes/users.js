@@ -32,7 +32,7 @@ router.post('/login', function(req, res, next){
 			if(usuario.clave != clave){
 				return next({error: req.lang_e.INCORRECT_PASSWORD });
 			}else{
-				let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: '2 days'});				
+				let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: config.jwt.expires});				
 				res.json({success: true, token: token})
 			}
 		}
@@ -55,7 +55,7 @@ router.post('/', function(req,res,next){
 
 		//Si el usuario se ha creado correctamente creo el token y se lo devuelvo al usuario para
 		//que pueda empezar a usar la api
-		let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: '2 days'});				
+		let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: config.jwt.expires});				
 		res.json({success: true, token: token});
 	});
 
