@@ -26,38 +26,38 @@ En "message" se podrá encontrar el mensaje de error devuelto en el idioma confi
 
 ###1.3 Usuarios
 
-**POST: /apiv1/users/** 
+######**POST: /apiv1/users/** 
 
-Este método **POST** requiere del nombre, del email y de una clave para intentar la creación del usuario. En caso afirmativo devuelve el token del usuario con validez de 2 dias (se puede configurar en el config.json) para empezar a trabajar con la API. **Nombre y email son obligatorios**
+>Este método **POST** requiere del nombre, del email y de una clave para intentar la creación del usuario. En caso afirmativo devuelve el token del usuario con validez de 2 dias (se puede configurar en el config.json) para empezar a trabajar con la API. **Nombre y email son obligatorios**
 	
 Request(x-www-form-urlencoded): body: **nombre** - **email** - **clave**
 
 Response(JSON): success, token
 
-**POST: /apiv1/login** 
+######**POST: /apiv1/login** 
 
-Este método **POST** requiere del email y del password en un form-urlencoded con esos nombres para intentar el login en la aplicación. En caso afirmativo devuelve el token del usuario con validez de 2 dias (se puede configurar en el config.json) para empezar a trabajar con la API.
+>Este método **POST** requiere del email y del password en un form-urlencoded con esos nombres para intentar el login en la aplicación. En caso afirmativo devuelve el token del usuario con validez de 2 dias (se puede configurar en el config.json) para empezar a trabajar con la API.
 	
-Request(x-www-form-urlencoded): body: **email** - **password**
+**Request(x-www-form-urlencoded):** body: **email** - **password**
 
-Response(JSON): success, token
+**Response(JSON):** success, token
 
-####USAR EL TOKEN
+>####USAR EL TOKEN
 
-Todas las peticiones que requieran de autentificación se tendrá que proporcionar un token válido a la API. 
+>Todas las peticiones que requieran de autentificación se tendrá que proporcionar un token válido a la API. 
 Este paramétro se puede enviar como parametro get con el nombre token, como parte del body con el nombre token o incluso como un header con el nombre "x-access-token".
 
 ###1.4 Anuncios
 
-Todos los métodos de esta ruta requieren de autentificación. Antes de empezar a trabajar se tiene que obtener un token válido de un usuario registrado *(mirar info de la ruta Usuarios)*
+>Todos los métodos de esta ruta requieren de autentificación. Antes de empezar a trabajar se tiene que obtener un token válido de un usuario registrado *(mirar info de la ruta Usuarios)*
 
-**GET: /apiv1/anuncios/** 
+######**GET: /apiv1/anuncios/** 
 
-Este método GET devuelve por defecto todos los anuncios de la base de datos. Los siguientes parámetros GET permiten crear filtros y hacer mas selecciones:
+>Este método GET devuelve por defecto todos los anuncios de la base de datos. Los siguientes parámetros GET permiten crear filtros y hacer mas selecciones:
 
 *Nota: Estos parámetros se pueden usar solos o en conjunto.*
 
-Request params: 
+**Request params:**
 
 * **nombre**: crea un filtro con la propiedad nombre. Se devolverán todos los que empiezen por el valor entrado.
 * **venta**: Solo acepta los valores "true" o "false" y crea un filtro por los anuncios a la venta (true) o no (false)
@@ -69,44 +69,44 @@ Request params:
 * **skip**:este parametro permite saltar-se los primeros registros de la salida a partir del valor de entrada. Valor numerico!
 * **fields**:permite más de una entrada. Seleccionará solo los paramétros de los anuncios que se marquen en este.
 
-Response(JSON): success, images_folder, anuncios
+**Response(JSON):** success, images_folder, anuncios
 
-*Nota: images_folder es la url de la carpeta donde se encuentran las imagenes. Se puede configurar en el config.json*
+>*Nota: images_folder es la url de la carpeta donde se encuentran las imagenes. Se puede configurar en el config.json*
 
-**GET: /apiv1/anuncios/tags** 
+######**GET: /apiv1/anuncios/tags** 
 
 Este método GET devuelve todos los tags activos en todos los anuncios de la base de datos. No hay registros repetidos.
 
 Response(JSON): success, tags
 
-**POST: /apiv1/anuncios/** 
+######**POST: /apiv1/anuncios/** 
 
-Este método **POST** requiere del nombre, de si esta en venta o no (true o false), del precio, de una foto, y de una lista de tags para crear el anuncio. En caso afirmativo devuelve el anuncio creado
+>Este método **POST** requiere del nombre, de si esta en venta o no (true o false), del precio, de una foto, y de una lista de tags para crear el anuncio. En caso afirmativo devuelve el anuncio creado
 **Solo el nombre es obligatorio**, venta por defecto sera false, el precio sera 0, la foto sera "default.jpg" y no tendrá lista de tags.
 	
-Request(x-www-form-urlencoded): body: **nombre** - **venta** - **precio** - **foto** - **tags**
+**Request(x-www-form-urlencoded):** body: **nombre** - **venta** - **precio** - **foto** - **tags**
 
-Response(JSON): success, anuncio
+**Response(JSON):** success, anuncio
 
-**PUT: /apiv1/anuncios/:id** 
+######**PUT: /apiv1/anuncios/:id** 
 
 *Nota: se requiere el id como parámetro GET para poder encontrar el anuncio*
 
 Este método **PUT** requiere del nombre, de si esta en venta o no (true o false), del precio, de una foto, y de una lista de tags para crear el anuncio. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
 **Solo el nombre es obligatorio**.
 	
-Request(x-www-form-urlencoded): body: **nombre** - **venta** - **precio** - **foto** - **tags**
+**Request(x-www-form-urlencoded):** body: **nombre** - **venta** - **precio** - **foto** - **tags**
 URL GET : id
 
-Response(JSON): success, response
+**Response(JSON):** success, response
 
-**DELETE: /apiv1/anuncios/:id** 
+######**DELETE: /apiv1/anuncios/:id** 
 
 *Nota: se requiere el id como parámetro GET para poder encontrar el anuncio*
 
 Este método **DELETE** requiere del id para encontrar el anuncio y eliminarlo. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
 **Solo el nombre es obligatorio**.
 	
-Request: URL GET : id
+**Request:** URL GET : id
 
-Response(JSON): success, response
+**Response(JSON):** success, response
