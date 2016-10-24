@@ -1,4 +1,12 @@
 {
+	"NO_TRANSLATION"				: "Translation not created",
 	"EMAIL_NOT_FOUND" 				: "Email not found...",
-	"INCORRECT_PASSWORD" 			: "Incorrect password!!"
+	"INCORRECT_PASSWORD" 			: "Incorrect password!!",
+	"SAVING_USER" 					: "Error saving user...",
+	"SELECT_ERROR"					: "Error selecting data from database...",
+	"CREATE_ERROR"					: "Error creating data...",
+	"MODIFY_ERROR"					: "Error modifying from database...",
+	"DELETE_ERROR"					: "Error deleting from database...",
+	"TOKEN_FAILED"					: "Failed to authenticate token.",
+	"NO_TOKEN"						: "No token provided."
 }

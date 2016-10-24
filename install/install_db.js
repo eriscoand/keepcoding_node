@@ -69,9 +69,11 @@ mongoose.connection.once('open', function(){
 		.then(createAnuncios)
 		.then(function(){
 			console.log("Perfecto! ya se han creado datos de prueba!!");
+			process.exit()
 		})
 		.catch(function(err){
 			console.log("Algo ha salido mal... :(")
 			console.log(err);
+			process.exit()
 		});
 });

@@ -12,8 +12,8 @@ var Usuario = mongoose.model('Usuario');
 var jwt = require('jsonwebtoken');
 var sha1 = require('sha1');
 
-//var jwtAuth = require('../lib/jwtAuth');
-//router.use(jwtAuth());
+var int_error = require('../lib/error_international');
+router.use(int_error());
 
 //METODO POST LOGIN
 router.post('/login', function(req, res, next){
@@ -24,13 +24,13 @@ router.post('/login', function(req, res, next){
 
 	//Buscar usuario por email *EMAIL es unique!!
 	Usuario.findOne({email: email}, function(err,usuario){
-		if(err) return next();
+		if(err) return next({error: req.lang_e.SELECT_ERROR });
 
 		if(!usuario){
-			res.json({success:false, error: "EMAIL_NOT_FOUND" });
+			return next({error: req.lang_e.EMAIL_NOT_FOUND });
 		}else{
 			if(usuario.clave != clave){
-				res.json({success:false, error: "INCORRECT_PASSWORD" });
+				return next({error: req.lang_e.INCORRECT_PASSWORD });
 			}else{
 				let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: '2 days'});				
 				res.json({success: true, token: token})
@@ -51,13 +51,12 @@ router.post('/', function(req,res,next){
 
 	//guardar usuario en la base de datos
 	usuario.save(function(err,usuario){
-		if(err) return next(err);
+		if(err) return next({error: req.lang_e.SAVING_USER, detail: err });
 
 		//Si el usuario se ha creado correctamente creo el token y se lo devuelvo al usuario para
 		//que pueda empezar a usar la api
 		let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: '2 days'});				
-		res.json({success: true, token: token})
-
+		res.json({success: true, token: token});
 	});
 
 });

@@ -1,0 +1,12 @@
+{
+	"NO_TRANSLATION"				: "No se ha creado traducción...",
+	"EMAIL_NOT_FOUND" 				: "Email no encontrado...",
+	"INCORRECT_PASSWORD" 			: "Contraseña incorrecta!!",
+	"SAVING_USER" 					: "Error guardando el usuario...",
+	"SELECT_ERROR"					: "Error seleccionando datos...",
+	"CREATE_ERROR"					: "Error creando en la base de datos...",
+	"MODIFY_ERROR"					: "Error modificando de la base de datos...",
+	"DELETE_ERROR"					: "Error eliminando de la base de datos...",
+	"TOKEN_FAILED"					: "No se ha podido autenticar token.",
+	"NO_TOKEN"						: "Sin token no puedes acceder!"
+}

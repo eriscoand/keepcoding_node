@@ -44,19 +44,18 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    console.log();
     res.status(err.status || 500);
     if(req.url.includes(config.api_url)){
       //RESPUESTA ERROR JSON
       res.json({
-        message: err.message,
-        error: err
+        message: err.error,
+        detail: err.detail
       });
     }else{      
       //RESPUESTA ERROR HTML
       res.render('error', {
-        message: err.message,
-        error: err
+        message: err.error,
+        error: err.detail
       });
     }
   });
@@ -64,12 +63,22 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
+
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  if(req.url.includes(config.api_url)){
+    //RESPUESTA ERROR JSON
+    res.json({
+        message: err.error,
+        detail: err.detail
+    });
+  }else{      
+    //RESPUESTA ERROR HTML
+    res.render('error', {
+        message: err.error,
+        error: err.detail
+    });
+  }
 });
 
 

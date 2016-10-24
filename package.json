@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=practica_node:* nodemon ./bin/www"
+    "start": "SSL=true:* nodemon ./bin/www",
+    "installdb": "node install/install_db.js"
   },
   "dependencies": {
+    "async-foreach": "^0.1.3",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "^2.2.0",

@@ -2,6 +2,8 @@
 	"api_url" 		: "/apiv1",
 	"images_folder" : "/images/",
 
+	"lang"			: "es",
+
 	"server_port"	: 5005,
 
 	"db_name"		: "practica",	

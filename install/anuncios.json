@@ -19,5 +19,33 @@
 		"precio": 50.00,
 		"foto": "rugby.jpg",
 		"tags": [ "sport", "team", "rugby" ]
+	},
+	{
+		"nombre": "Balón de rugby 2",
+		"venta": true,
+		"precio": 52.00,
+		"foto": "rugby.jpg",
+		"tags": [ "sport", "team", "rugby" ]
+	},
+	{
+		"nombre": "Balón de rugby 3",
+		"venta": true,
+		"precio": 53.00,
+		"foto": "rugby.jpg",
+		"tags": [ "sport", "team", "rugby" ]
+	},
+	{
+		"nombre": "Balón de rugby 4",
+		"venta": true,
+		"precio": 54.00,
+		"foto": "rugby.jpg",
+		"tags": [ "sport", "team", "rugby" ]
+	},
+	{
+		"nombre": "Balón de rugby 5",
+		"venta": true,
+		"precio": 55.00,
+		"foto": "rugby.jpg",
+		"tags": [ "sport", "team", "rugby", "pruebadetags" ]
 	}
 ]
