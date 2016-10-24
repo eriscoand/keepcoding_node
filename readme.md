@@ -92,7 +92,7 @@ Response(JSON): success, tags
 
 *Nota: se requiere el id como parámetro GET para poder encontrar el anuncio*
 
-Este método **PUT** requiere del nombre, de si esta en venta o no (true o false), del precio, de una foto, y de una lista de tags para crear el anuncio. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
+>Este método **PUT** requiere del nombre, de si esta en venta o no (true o false), del precio, de una foto, y de una lista de tags para crear el anuncio. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
 **Solo el nombre es obligatorio**.
 	
 **Request(x-www-form-urlencoded):** body: **nombre** - **venta** - **precio** - **foto** - **tags**
@@ -104,7 +104,7 @@ URL GET : id
 
 *Nota: se requiere el id como parámetro GET para poder encontrar el anuncio*
 
-Este método **DELETE** requiere del id para encontrar el anuncio y eliminarlo. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
+>Este método **DELETE** requiere del id para encontrar el anuncio y eliminarlo. En caso afirmativo si se ha aconseguido modificar el registro devuelve una respuesta.
 **Solo el nombre es obligatorio**.
 	
 **Request:** URL GET : id
