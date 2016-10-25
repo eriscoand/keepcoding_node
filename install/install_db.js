@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //middleware's
 var mongoose = require('mongoose');
@@ -18,7 +18,7 @@ var anuncios = require('./anuncios.json');
 
 //funcion que elimina los usuarios
 function deleteUsuarios(){
-	console.log("Eliminando Usuarios...");
+	console.log('Eliminando Usuarios...');
 	return new Promise(function(resolve, reject){
 		Usuario.remove({}, function(err){
 			if(err) reject(err);
@@ -29,34 +29,34 @@ function deleteUsuarios(){
 
 //funcion que elimina los anuncios
 function deleteAnuncios(){
-	console.log("Eliminando Anuncios...");
+	console.log('Eliminando Anuncios...');
 	return new Promise(function(resolve, reject){
 		Anuncio.remove({}, function(err){
 			if(err) reject(err);
 			resolve();
-		})
+		});
 	});
 }
 
 //funcion que crea los usuarios a partir del JSON
 function createUsuarios(){
-	console.log("Creando Usuarios...");
+	console.log('Creando Usuarios...');
 	return new Promise(function(resolve, reject){
 		Usuario.insertMany(usuarios, function(err){
 			if(err) reject(err);
 			resolve();
-		})
+		});
 	});
 }
 
 //funcion que crea los anuncios a partir del JSON
 function createAnuncios(){
-	console.log("Creando Anuncios...");
+	console.log('Creando Anuncios...');
 	return new Promise(function(resolve, reject){
 		Anuncio.insertMany(anuncios, function(err){
 			if(err) reject(err);
 			resolve();
-		})
+		});
 	});
 }
 
@@ -68,12 +68,12 @@ mongoose.connection.once('open', function(){
 		.then(createUsuarios)
 		.then(createAnuncios)
 		.then(function(){
-			console.log("Perfecto! ya se han creado datos de prueba!!");
-			process.exit()
+			console.log('Perfecto! ya se han creado datos de prueba!!');
+			process.exit();
 		})
 		.catch(function(err){
-			console.log("Algo ha salido mal... :(")
+			console.log('Algo ha salido mal... :(');
 			console.log(err);
-			process.exit()
+			process.exit();
 		});
 });

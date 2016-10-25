@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 var router = express.Router();
 
-var config = require('../config.json')
+var config = require('../config.json');
 
 //cargar Modelos Mongoose
 var mongoose = require('mongoose');
@@ -33,7 +33,7 @@ router.post('/login', function(req, res, next){
 				return next({error: req.lang_e.INCORRECT_PASSWORD });
 			}else{
 				let token = jwt.sign({id: usuario},config.jwt.secret,{expiresIn: config.jwt.expires});				
-				res.json({success: true, token: token})
+				res.json({success: true, token: token});
 			}
 		}
 	});

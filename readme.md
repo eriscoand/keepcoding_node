@@ -34,7 +34,7 @@ Request(x-www-form-urlencoded): body: **nombre** - **email** - **clave**
 
 Response(JSON): success, token
 
-###**POST: /apiv1/login** 
+###**POST: /apiv1/users/login** 
 
 >Este método **POST** requiere del email y del password en un form-urlencoded con esos nombres para intentar el login en la aplicación. En caso afirmativo devuelve el token del usuario con validez de 2 dias (se puede configurar en el config.json) para empezar a trabajar con la API.
 	
@@ -110,3 +110,33 @@ URL GET : id
 **Request:** URL GET : id
 
 **Response(JSON):** success, response
+
+
+##2. Instalar
+
+>Con el comando "npm run installdb" se cargan los dos ficheros JSON que se encuentran en la carpeta "install" y se guardan en la base de datos. Se ejecuta install_db.js que esta en la carpeta install. 
+
+>Con el comando "npm install" se instalaran todos los modulos de node necesarios para que funcione el proyecto.
+
+##3. JSHINT
+
+>He pasado JSHINT a la carpeta raiz, routes, models, lib e install con la configuración de propuesta en la práctica.
+
+##4. Traducciones
+
+> En la carpeta translate hay dos JSON cada uno con los mensajes de error traducidos. Para gestionar las traducciones me he creado un modulo "error_international" que esta en la carpeta lib. Se llama justo antes de las metodos de los routes.
+
+##5. Connexion Base de datos
+
+> He modificado un poco el mongoConnection.js de la carpeta lib para que aceptara parametros como usuario, ip, puerto del config.json.
+
+##6. Cluster
+ 
+> He añadido al www de la carpeta bin el control de cluster, creando uno por cada CPU de la máquina.
+
+##7. SSL
+
+> He añadido SSL con certificado en el www de la carpeta bin. El comando "npm start" enciende el servidor con ssl por defecto. Se puede modificar en el package.json
+
+
+

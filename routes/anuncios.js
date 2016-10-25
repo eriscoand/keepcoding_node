@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 var router = express.Router();
 
-var config = require('../config.json')
+var config = require('../config.json');
 
 var forEach = require('async-foreach').forEach;
 
@@ -41,7 +41,7 @@ router.get('/', function(req, res, next){
 	//si el querystring contiene la variable nombre agregar filtro por nombre empieza por
 	if(typeof nombre !== 'undefined' && nombre !== ''){
 		//aplicamos al filtre de nombre un RegExp de startwith con el contenido del querystring nombre
-		filter.nombre = new RegExp("^"+nombre, 'i')
+		filter.nombre = new RegExp('^'+nombre, 'i');
 	}
 
 	//Si el querystring contiene la variable venta agregar al filtro y comprobar que sea true o false
@@ -68,17 +68,17 @@ router.get('/', function(req, res, next){
 			//En el caso de que solo se entre un tag, se crea una lista a partir de el y creamos el filtro con $in
 			var tagList = [];
 			tagList.push(tags);
-			filter.tags = { "$in" : tagList }
+			filter.tags = { '$in' : tagList };
 		}else{
 			//En el caso de que se entren varios tags, le damos a $in todo los valores
-			filter.tags = { "$in" : tags }
+			filter.tags = { '$in' : tags };
 		}
 	}
 
     //En el caso de que se quiera hacer un select de mas de un campo se requiere una transformación a string separados
     //por espacios 
-    if(fields != null){
-    	fields = fields.toString().replace(","," ");
+    if(fields !== null){
+    	fields = fields.toString().replace(',',' ');
     }
 
 	//Buscamos los resultados con todos los parametros de entrada creando la query
@@ -114,7 +114,7 @@ router.get('/tags', function(req, res, next){
 		var tags = [];
 
 		//por cada anuncio obtenemos sus tags
-		forEach(anuncios, function(anuncio, index, anuncios) {
+		forEach(anuncios, function(anuncio) {
 			//mapeamos los tags de cada anuncio 
 			anuncio.tags.map(function (tag) { 
 				//miramos si no aún no esta incluido en la lista de tags que se devolverá
@@ -169,6 +169,6 @@ router.delete('/:id', function(req,res,next){
 		res.json({success:true, response: response});
 	});
 	
-})
+});
 
 module.exports = router;
