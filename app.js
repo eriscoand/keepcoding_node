@@ -57,7 +57,7 @@ if (app.get('env') === 'development') {
       //RESPUESTA ERROR HTML
       res.render('error', {
         message: err.error,
-        error: err.detail
+        error: err
       });
     }
   });
@@ -78,7 +78,7 @@ app.use(function(err, req, res, next) {
     //RESPUESTA ERROR HTML
     res.render('error', {
         message: err.error,
-        error: err.detail
+        error: err
     });
   }
 });
